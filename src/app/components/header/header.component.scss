@@ -1,0 +1,59 @@
+@import "../../../assets/styles/another-style.scss";
+@import "../../../assets/styles/themes";
+.header__container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.logo__link {
+  font-size: clamp(1.75rem, 1.5rem + 1.111vw, 2.5rem);
+}
+.header__menu {
+  display: grid;
+  justify-items: center;
+}
+
+.nav__list {
+  display: flex;
+  @include responsive-property("gap", 20, 45, 3);
+}
+
+.menu__burger-nav {
+  display: none;
+}
+.header__btn-toggle {
+  border: none;
+  background-color: inherit;
+}
+::ng-deep .header__btn-toggle {
+  span {
+    font-size: clamp(1rem, 0.917rem + 0.37vw, 1.25rem);
+  }
+}
+.heder__toggle {
+  width: 90px;
+}
+@media screen and (max-width: 767.98px) {
+  .menu__nav {
+    display: none;
+  }
+  .menu__burger-nav {
+    display: block;
+  }
+  .header__logo {
+    grid-column: 2/2;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .header__menu {
+    grid-column: 1/1;
+    grid-row: 1;
+  }
+  .heder__toggle {
+    width: 75px;
+    grid-column: 3/3;
+    grid-row: 1;
+  }
+}

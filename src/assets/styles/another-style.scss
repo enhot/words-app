@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,regular,700);
+@import url(https://fonts.googleapis.com/css?family=Tourney:,300,regular,700);
+
+$maxWidth: 1600;
+$maxWidthContainer: 1400;
+$fontColorDefault: rgb(68, 68, 68);
+$bgColor: rgb(218, 218, 218);
+$fontMontserrat: Montserrat;
+$fontTourney: Tourney;
+
+@mixin responsive-property($property, $minValue, $maxValue, $type) {
+  $addSize: $maxValue - $minValue;
+
+  @if ($type == 1) {
+    #{$property}: #{$maxValue + px};
+    @media (max-width: #{$maxWidthContainer + px} ) {
+      #{$property}: calc(
+        #{$minValue + px} + #{$addSize} * (100vw - 320px) /
+          ($maxWidthContainer - 320)
+      );
+    }
+  } @else if($type == 2) {
+    #{$property}: #{$maxValue + px};
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+        #{$minValue + px} + #{$addSize} * (100vw - 320px) / ($maxWidth - 320)
+      );
+    }
+  } @else if($type == 3) {
+    #{$property}: #{$maxValue + px};
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+        #{$minValue + px} + #{$addSize} * (100vw - 768px) /
+          ($maxWidthContainer - 768)
+      );
+    }
+  } @else {
+    #{$property}: calc(
+      #{$minValue + px} + #{$addSize} * (100vw - 320px) / ($maxWidth - 320)
+    );
+  }
+}
+
+//Размер контейнера
+
+[class*="__container"] {
+  width: 100%;
+  max-width: $maxWidthContainer;
+  padding: 0px clamp(0.625rem, 0.417rem + 0.926vw, 1.25rem);
+  margin: 0 auto;
+  overflow: hidden;
+}
+//Шрифт по умаолчанию
+
+body {
+  font-family: $fontMontserrat;
+  font-size: clamp(1rem, 0.917rem + 0.37vw, 1.25rem);
+}
+//Для кнопки
+.bn632-hover {
+  max-width: 250px;
+  width: 100%;
+  font-weight: 600;
+  color: var(--btn-color);
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.bn632-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.bn632-hover:focus {
+  outline: none;
+}
+
+.bn632-hover.bn26 {
+  background-image: var(--bg-hero-gradient);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+//Для других кнопок
+
+.bn600-hover {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--btn-color);
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 10px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.bn600-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.bn600-hover:focus {
+  outline: none;
+}
+
+.bn600-hover.bn20 {
+  background-image: var(--bg-btn-gradient);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+//Логотип
+.logo {
+  font-family: $fontTourney;
+  font-weight: 700;
+  background-image: var(--logo-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}

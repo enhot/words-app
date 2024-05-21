@@ -1,0 +1,41 @@
+<section class="success">
+  <div class="success__container">
+    <h2 class="success__title">
+      Более 90% наших пользователей, говорят что их знания улучшились
+    </h2>
+    <div class="success__block">
+      <div class="success__content">
+        <span class="content__span"
+          >Пользуйтесь карточками и запоминай что угодно</span
+        >
+        <p class="content__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          omnis porro officia. Sint, magnam? Labore dolorem, qui ratione
+          delectus aliquam veniam officia.
+        </p>
+        <a routerLink="/cards" class="content__link-btn"
+          ><button class="content__start-btn bn600-hover bn20">
+            Начать
+          </button></a
+        >
+      </div>
+      <div class="success__block-img">
+        @if (!changeImg) {
+        <img
+          [@fadeInOut]
+          class="block-img__img"
+          src="assets/images/home/success/girl-phone.jpg"
+          alt="girl"
+        />
+        }@else {
+        <img
+          [@fadeInOut]
+          class="block-img__img"
+          src="assets/images/home/success/boy-phone.jpg"
+          alt="girl"
+        />
+        }
+      </div>
+    </div>
+  </div>
+</section>

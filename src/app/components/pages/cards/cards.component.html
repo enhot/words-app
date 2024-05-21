@@ -1,0 +1,79 @@
+<section class="cards">
+  <div class="cards__container">
+    <h2 class="cards__title">Английский язык на карточках</h2>
+
+    <div class="cards__cards-block">
+      <swiper-container
+        class="cards-block__swiper-container"
+        pagination-type="fraction"
+        init="false"
+      >
+        @for (item of words$ | async ; track i; let i = $index) {
+        <swiper-slide>
+          <div
+            class="cards-box"
+            [@flipState]="flip"
+            (click)="toggleFlip($event)"
+          >
+            <div class="cards-box__slide cards-box__front">
+              <div class="slide__top-tools">
+                @if(!showHelp ){
+                <button class="top-tools__help" (click)="helperLamp($event)">
+                  <img
+                    width="24px"
+                    height="24px"
+                    src="assets/images/cards/lamp.svg"
+                    alt="lamp"
+                  />
+                  Показать подсказку
+                </button>
+
+                }@else{
+                <button
+                  (click)="helperLamp($event)"
+                  class="top-tools__help show-help"
+                >
+                  <img
+                    width="24px"
+                    height="24px"
+                    src="assets/images/cards/lamp.svg"
+                    alt="lamp"
+                  />
+                  {{ item.rusWord | firstLetter }}
+                </button>
+                }
+
+                <span
+                  (click)="speakWord(item.englishWord, $event, 0.8, 'en-US')"
+                  class="top-tools__sound"
+                  ><img
+                    width="24px"
+                    height="24px"
+                    src="assets/images/cards/sound.svg"
+                    alt="sound"
+                /></span>
+              </div>
+              <span class="slide__word">{{
+                item.englishWord | uppercase
+              }}</span>
+            </div>
+            <div class="cards-box__slide cards-box__back">
+              <div class="slide__top-tools top-tools__back">
+                <span class="top-tools__sound"
+                  ><img
+                    width="24px"
+                    height="24px"
+                    src="assets/images/cards/sound.svg"
+                    alt="sound"
+                    (click)="speakWord(item.rusWord, $event, 1, 'ua-RU')"
+                /></span>
+              </div>
+              <span class="slide__word">{{ item.rusWord | uppercase }}</span>
+            </div>
+          </div>
+        </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+  </div>
+</section>

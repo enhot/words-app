@@ -1,0 +1,51 @@
+@import "../../../../../../assets/styles/another-style.scss";
+.success {
+  @include responsive-property("margin-top", 40, 80, 1);
+}
+
+.success__container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  @include responsive-property("gap", 20, 40, 1);
+}
+.success__title {
+  font-family: $fontTourney;
+}
+.success__block {
+  display: flex;
+  @include responsive-property("gap", 20, 70, 3);
+  align-items: flex-start;
+}
+.success__content {
+  flex: 0 1 60%;
+  display: flex;
+  flex-direction: column;
+  @include responsive-property("gap", 15, 35, 1);
+}
+.content__span {
+  font-size: clamp(1.25rem, 1.12rem + 0.577vw, 1.625rem);
+}
+.content__text {
+}
+.content__start-btn {
+  border-radius: 10px;
+}
+.success__block-img {
+  flex: 0 1 40%;
+}
+.block-img__img {
+  object-fit: contain;
+}
+
+@media screen and (max-width: 767.98px) {
+  .success__block {
+    flex-direction: column;
+  }
+  .success__title {
+    text-align: center;
+  }
+  .content__link-btn {
+    text-align: center;
+  }
+}

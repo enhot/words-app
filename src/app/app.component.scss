@@ -1,0 +1,29 @@
+@import "../assets/styles/another-style.scss";
+@import "../assets/styles/themes";
+.wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--degault-bg);
+  color: var(--default-color);
+  transition: background-color 0.5s linear, color 0.5s linear;
+  position: relative;
+}
+.header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: clamp(1.25rem, 1.042rem + 0.926vw, 1.875rem) 0;
+  background-color: var(--degault-bg);
+}
+.main {
+  flex: 1 1 auto;
+}
+.footer {
+  background-color: var(--hero-bg);
+  margin-top: 60px;
+  padding: 40px 0px;
+}

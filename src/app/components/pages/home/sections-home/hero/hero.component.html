@@ -1,0 +1,35 @@
+<section class="hero">
+  <div class="hero__container">
+    <div class="hero__block-left">
+      <h1 class="block-left__title">Учи без ограничений</h1>
+      <div class="block-left__content">
+        <p class="content__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque debitis
+          in laudantium eligendi sed ab repellat, vel dolorem nihil quae ipsam
+          voluptatum ullam consequuntur optio porro molestias consequatur eum
+          reprehenderit?
+        </p>
+        <a routerLink="/addWords"
+          ><button class="content__start-btn bn632-hover bn26">
+            Добавляй слова
+          </button></a
+        >
+      </div>
+    </div>
+    <div class="hero__block-img">
+      @if (!themeIs) {<img
+        [@fadeInOut]
+        class="block-img__img-girl img__day"
+        src="assets/images/home/hero/day.png"
+        alt="day-girl"
+      />} @else {
+      <img
+        [@fadeInOut]
+        class="block-img__img-girl img__night"
+        src="assets/images/home/hero/night.png"
+        alt="night-girl"
+      />
+      }
+    </div>
+  </div>
+</section>

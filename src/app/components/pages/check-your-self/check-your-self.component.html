@@ -1,0 +1,60 @@
+<section class="check">
+  <div class="check__container">
+    <h2 class="check__title">Проверь себя</h2>
+    <div class="check__block-content">
+      @for (item of words$ | async ; track i; let i = $index) { @if(currentIndex
+      == i) {
+      <span class="block-content__question">{{ item.englishWord }}</span>
+      <div class="block-content__radios">
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="userChoice">
+          @if(currentIndex < randomIndex){
+          <mat-radio-button
+            class="radio__btn radio-random"
+            value="{{ randomWord }}"
+            >{{ randomWord }}</mat-radio-button
+          >
+          <mat-radio-button
+            class="radio__btn radio-rus"
+            value="{{ item.rusWord }}"
+            >{{ item.rusWord }}</mat-radio-button
+          >
+          }@else {
+          <mat-radio-button
+            class="radio__btn radio-rus"
+            value="{{ item.rusWord }}"
+            >{{ item.rusWord }}</mat-radio-button
+          >
+          <mat-radio-button
+            class="radio__btn radio-random"
+            value="{{ randomWord }}"
+            >{{ randomWord }}</mat-radio-button
+          >
+          }
+        </mat-radio-group>
+      </div>
+      } }
+      <div class="block-content__buttons">
+        @if (currentIndex === wordsLength) {
+
+        <button
+          class="block-content__btn bn600-hover bn20"
+          (click)="dialogAnswer()"
+        >
+          Показать ответы
+        </button>
+        <button (click)="reload()" class="block-content__btn bn600-hover bn20">
+          Начать заново
+        </button>
+        }@else{
+        <button
+          class="block-content__btn bn600-hover bn20"
+          (click)="nextWord()"
+        >
+          Next
+        </button>
+
+        }
+      </div>
+    </div>
+  </div>
+</section>

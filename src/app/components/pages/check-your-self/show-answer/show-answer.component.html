@@ -1,0 +1,23 @@
+<section class="dialog">
+  <div class="dialog__container">
+    <h3 class="dialog__title">
+      Вашы ответы {{ correctAnswersCount }}/ {{ answer.length }}
+    </h3>
+
+    <ul class="dialog__list">
+      @for (item of answer; track $index) {
+      <li class="list__item">Вопрос: {{ item.englishWord }}</li>
+      <li
+        class="list__item"
+        [ngClass]="{
+          'correct-answer': item.rusWord === item.answerWord,
+          'uncorrect-answer': item.rusWord != item.answerWord
+        }"
+      >
+        Ваш ответ: {{ item.answerWord }}
+      </li>
+      <li class="list__item">Правильный ответ: {{ item.rusWord }}</li>
+      }
+    </ul>
+  </div>
+</section>

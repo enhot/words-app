@@ -1,0 +1,62 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__logo">
+      <a routerLink="/home" class="logo__link logo">TeYour</a>
+    </div>
+    <div class="header__menu">
+      <nav class="menu__nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a routerLink="/home" class="item__link">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a routerLink="/cards" class="item__link">Карточки</a>
+          </li>
+          <li class="nav__item">
+            <a routerLink="/checkYours" class="item__link">Проверь себя</a>
+          </li>
+          <li class="nav__item">
+            <a routerLink="/addWords" class="item__link">Добавить слова</a>
+          </li>
+        </ul>
+      </nav>
+      <!--На телефоне-->
+      <nav class="menu__burger-nav">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button routerLink="/home" mat-menu-item>
+            <mat-icon aria-hidden="false" fontIcon="home"></mat-icon>
+            <span>Главная</span>
+          </button>
+          <button routerLink="/cards" class="burger-nav__btn" mat-menu-item>
+            <mat-icon
+              class="mat-icon-rtl-mirror"
+              fontIcon="check_box_outline_blank"
+            ></mat-icon>
+
+            <span>Карточки</span>
+          </button>
+          <button routerLink="/checkYours" mat-menu-item>
+            <mat-icon fontIcon="check"></mat-icon>
+            <span>Проверь себя</span>
+          </button>
+          <button routerLink="/addWords" mat-menu-item>
+            <mat-icon fontIcon="keyboard"></mat-icon>
+            <span>Добавить слова</span>
+          </button>
+        </mat-menu>
+      </nav>
+    </div>
+    <div class="heder__toggle">
+      <mat-slide-toggle
+        labelPosition="before"
+        class="header__btn-toggle"
+        (change)="toggleTheme()"
+        #slide
+        ><span>{{ slide.checked ? "Day" : "Night" }}</span></mat-slide-toggle
+      >
+    </div>
+  </div>
+</header>

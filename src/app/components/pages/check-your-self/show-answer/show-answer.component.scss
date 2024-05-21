@@ -1,0 +1,37 @@
+@import "../../../../../assets/styles/another-style.scss";
+
+.dialog {
+  /* Убираем полосу прокрутки, но оставляем возможность прокрутки */
+  overflow: auto;
+  /* Для WebKit-браузеров (Chrome, Safari) */
+  scrollbar-width: none;
+  /* Для Firefox */
+  scrollbar-color: transparent transparent;
+}
+
+.dialog__container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.dialog__title {
+  font-size: clamp(1.75rem, 1.469rem + 1.25vw, 2.5625rem);
+  font-family: $fontTourney;
+}
+.dialog__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.list__item:nth-child(3n) {
+  margin-bottom: 20px;
+}
+
+.correct-answer {
+  color: green;
+}
+.uncorrect-answer {
+  color: red;
+}

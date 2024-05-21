@@ -1,0 +1,77 @@
+<section class="words">
+  <div class="words__container">
+    @if (loader$ | async) {
+    <ng-container>
+      <div class="spinner-container">
+        <mat-spinner [mode]="'indeterminate'"></mat-spinner>
+      </div>
+    </ng-container>
+
+    }
+
+    <h3 class="words__title">Добавляем новые слова</h3>
+    <div class="words__block block__new-words">
+      <form
+        [formGroup]="sendWordsForm"
+        class="new-words__form-words"
+        (submit)="addWords()"
+      >
+        <div class="form-words__eng">
+          <mat-form-field class="eng__mat-field mat-field">
+            <mat-label>Слово на английском</mat-label>
+            <input
+              class="mat-field__input"
+              type="text"
+              matInput
+              formControlName="englishWord"
+              placeholder="Hello"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-words__rus">
+          <mat-form-field class="eng__mat-field mat-field">
+            <mat-label>Слово на русском</mat-label>
+            <input
+              class="mat-field__input"
+              type="text"
+              matInput
+              formControlName="rusWord"
+              placeholder="Привет"
+            />
+          </mat-form-field>
+        </div>
+        <button
+          [disabled]="sendWordsForm.invalid"
+          (submit)="addWords()"
+          class="form-words__btn bn600-hover bn20"
+        >
+          Add new words
+        </button>
+      </form>
+    </div>
+    <div class="words__table-block">
+      <table class="table-block__table">
+        <thead class="table__table-head">
+          <tr class="table-head tr">
+            <th class="tr__th">№</th>
+            <th class="tr__th">Engilsh</th>
+            <th class="tr__th">Russ</th>
+            <th class="tr__th">Delete</th>
+          </tr>
+        </thead>
+        <tbody class="table__table-body">
+          <tr class="table-body tr">
+            @for (item of sendWordsArray; track $index) {
+            <td class="tr__td">{{ $index + 1 }}</td>
+            <td class="tr__td">{{ item.englishWord }}</td>
+            <td class="tr__td">{{ item.rusWord }}</td>
+            <td class="tr__td">
+              <button class="td-btn" (click)="deleteWord($index)">X</button>
+            </td>
+            }
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
