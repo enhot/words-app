@@ -1,4 +1,4 @@
-import { ElementRef, Injectable, OnInit, Renderer2 } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({

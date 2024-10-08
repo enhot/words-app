@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { ChangeThemeService } from './services/change-theme.service';
@@ -12,5 +12,6 @@ import { ThemeDirective } from './derectives/theme.directive';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [ChangeThemeService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {}

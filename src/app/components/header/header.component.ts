@@ -20,7 +20,6 @@ import { CommonModule } from '@angular/common';
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  providers: [ChangeThemeService],
 })
 export class HeaderComponent {
   constructor(private themeService: ChangeThemeService) {}

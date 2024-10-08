@@ -1,11 +1,11 @@
-import { Directive, ElementRef, HostBinding, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { ChangeThemeService } from '../services/change-theme.service';
 
 @Directive({
   selector: '[appTheme]',
   standalone: true,
 })
-export class ThemeDirective {
+export class ThemeDirective implements OnInit {
   constructor(
     private elementRef: ElementRef,
     private render: Renderer2,
@@ -19,6 +19,7 @@ export class ThemeDirective {
         'data-theme',
         theme
       );
+      // inject лучше
       const body = document.body;
       if (theme == 'light') {
         this.render.addClass(body, 'light-theme');
